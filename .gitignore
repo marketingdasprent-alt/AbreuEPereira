@@ -1,0 +1,18 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs e temporários
+*.log
+*.tmp
+node_modules/
+
+# Pacotes de publicação gerados localmente
+*-upload.zip

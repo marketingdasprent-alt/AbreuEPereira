@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== Segurança ===== -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <title>Abreu e Pereira — Transporte, Recrutamento e Restauração</title>
+  <meta name="description" content="Abreu e Pereira, Lda. Três frentes de trabalho: transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa. Site em construção." />
+  <meta name="theme-color" content="#0f1113" />
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:title" content="Abreu e Pereira — Três frentes de trabalho" />
+  <meta property="og:description" content="Transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_PT" />
+  <meta property="og:image" content="images/mark.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="images/mark.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <a href="#frentes" class="atalho">Saltar para o conteúdo</a>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <div class="barra" id="barra">
+    <div class="barra-in">
+
+      <!--
+        MARCA — troca automática de logótipo.
+        Sem ficheiros em images/, mostra-se o monograma tipográfico.
+        Ver images/LEIA-ME.md para os nomes esperados.
+      -->
+      <a href="#" class="marca" data-brand="light" aria-label="Abreu e Pereira — início">
+        <img class="marca-img" alt="Abreu e Pereira" hidden />
+        <span class="marca-txt">
+          <span class="mt-sigla" aria-hidden="true">AP</span>
+          <span class="mt-nome">Abreu&nbsp;e&nbsp;Pereira</span>
+        </span>
+      </a>
+
+      <div class="barra-dir">
+        <span class="obra" title="Site em construção">
+          <span class="obra-luz" aria-hidden="true"></span>
+          Em construção
+        </span>
+        <a class="barra-mail" href="mailto:geral.abreu@sapo.pt">geral.abreu@sapo.pt</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ ENTRADA — TRÊS PAINÉIS ============ -->
+  <section class="entrada" id="frentes" aria-label="As três áreas">
+
+    <a class="frente" href="#f-transporte" data-f="t">
+      <span class="f-num">01</span>
+      <span class="f-corpo">
+        <span class="f-nome">Transporte<br />de mercadorias</span>
+        <span class="f-desc">Carga geral e distribuição, com rotas planeadas e prazos que se cumprem.</span>
+        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frente" href="#f-recrutamento" data-f="r">
+      <span class="f-num">02</span>
+      <span class="f-corpo">
+        <span class="f-nome">Recrutamento<br />de pessoas</span>
+        <span class="f-desc">Selecção atenta ao perfil e ao contexto. Uma colocação certa vale por dez apressadas.</span>
+        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <a class="frente" href="#f-restauracao" data-f="f">
+      <span class="f-num">03</span>
+      <span class="f-corpo">
+        <span class="f-nome">Restauração</span>
+        <span class="f-desc">Produto cuidado, sala acolhedora. O trabalho mede-se em quem volta.</span>
+        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+      </span>
+    </a>
+
+    <div class="entrada-pe" aria-hidden="true">
+      <span>Abreu e Pereira, Lda.</span>
+      <span class="pe-meio">Três frentes · uma casa</span>
+      <span>Lisboa, PT</span>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ============ A CASA ============ -->
+    <section class="casa" id="casa">
+      <div class="col-dupla">
+        <p class="rotulo">A casa</p>
+        <div class="col-texto">
+          <h2 class="titulao">
+            Três ofícios diferentes.<br />
+            Uma só maneira de os fazer.
+          </h2>
+          <p class="texto-grande">
+            A Abreu e Pereira, Lda. é uma empresa portuguesa sediada em Lisboa.
+            Atravessa a estrada, as pessoas e a mesa — e não trata nenhuma delas
+            como actividade secundária.
+          </p>
+          <p class="texto-corr">
+            O que liga sectores tão distintos não é o mercado; é o método.
+            Palavra dada, prazos cumpridos e uma preferência clara pelo trabalho
+            bem feito em vez do trabalho depressa feito. Quem nos contrata fala
+            com quem decide, sem intermediários a diluir a responsabilidade.
+          </p>
+          <p class="texto-corr">
+            Estamos a preparar o site completo. Até lá, esta página serve para
+            dizer quem somos e como nos encontrar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FICHAS DAS ÁREAS ============ -->
+
+    <article class="ficha" id="f-transporte" data-f="t">
+      <div class="ficha-in">
+        <header class="ficha-topo">
+          <span class="ficha-n">01</span>
+          <h2 class="ficha-nome">Transporte de mercadorias</h2>
+        </header>
+
+        <div class="ficha-grelha">
+          <p class="ficha-texto">
+            Movimentação de carga com planeamento de rotas, cumprimento de
+            prazos e acompanhamento do percurso. Cada entrega é um compromisso
+            assumido com quem confia a mercadoria à nossa responsabilidade —
+            e é assim que a tratamos, do carregamento à descarga.
+          </p>
+          <dl class="ficha-lista">
+            <div><dt>Serviço</dt><dd>Carga geral</dd></div>
+            <div><dt>Âmbito</dt><dd>Distribuição</dd></div>
+            <div><dt>Método</dt><dd>Rotas planeadas</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="ficha" id="f-recrutamento" data-f="r">
+      <div class="ficha-in">
+        <header class="ficha-topo">
+          <span class="ficha-n">02</span>
+          <h2 class="ficha-nome">Recrutamento de pessoas</h2>
+        </header>
+
+        <div class="ficha-grelha">
+          <p class="ficha-texto">
+            Fazemos a ligação entre quem procura trabalho e quem procura quem
+            trabalhe. A selecção é atenta ao perfil e ao contexto, porque uma
+            colocação certa vale mais do que dez apressadas — para a empresa
+            que contrata e para a pessoa que entra.
+          </p>
+          <dl class="ficha-lista">
+            <div><dt>Serviço</dt><dd>Selecção</dd></div>
+            <div><dt>Âmbito</dt><dd>Colocação</dd></div>
+            <div><dt>Método</dt><dd>Acompanhamento</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <article class="ficha" id="f-restauracao" data-f="f">
+      <div class="ficha-in">
+        <header class="ficha-topo">
+          <span class="ficha-n">03</span>
+          <h2 class="ficha-nome">Restauração</h2>
+        </header>
+
+        <div class="ficha-grelha">
+          <p class="ficha-texto">
+            Servir à mesa com a simplicidade de sempre: produto cuidado, sala
+            acolhedora e o gosto de receber bem. É o lado da casa onde o
+            trabalho não se mede em relatórios — mede-se em quem volta, e em
+            quem traz alguém consigo da próxima vez.
+          </p>
+          <dl class="ficha-lista">
+            <div><dt>Serviço</dt><dd>Sala</dd></div>
+            <div><dt>Âmbito</dt><dd>Cozinha</dd></div>
+            <div><dt>Método</dt><dd>Serviço</dd></div>
+          </dl>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ CONTACTOS (bloco claro) ============ -->
+    <section class="contacto" id="contacto">
+      <div class="contacto-in">
+
+        <h2 class="contacto-tit">
+          Enquanto o site<br />não fica pronto,<br />
+          <span class="sublinha">fale connosco.</span>
+        </h2>
+
+        <div class="contacto-lista">
+
+          <a class="linha" href="mailto:geral.abreu@sapo.pt">
+            <span class="linha-rot">Email</span>
+            <span class="linha-val">geral.abreu@sapo.pt</span>
+            <span class="linha-ac" aria-hidden="true">→</span>
+          </a>
+
+          <a class="linha" href="https://maps.google.com/?q=Travessa+do+Alcaide+22-A+1200-013+Lisboa"
+             target="_blank" rel="noopener noreferrer">
+            <span class="linha-rot">Morada</span>
+            <span class="linha-val">
+              <address>Travessa do Alcaide, n.º 22-A — 1200-013 Lisboa</address>
+            </span>
+            <span class="linha-ac" aria-hidden="true">→</span>
+          </a>
+
+          <!--
+            TELEFONE — número por definir.
+            Enquanto for 000 000 000 fica como texto, sem link, para ninguém
+            marcar um número inexistente. Quando tiveres o real, substitui
+            este bloco inteiro por:
+
+            <a class="linha" href="tel:+351210000000">
+              <span class="linha-rot">Telefone</span>
+              <span class="linha-val">+351 210 000 000</span>
+              <span class="linha-ac" aria-hidden="true">→</span>
+            </a>
+
+            E actualiza também o rodapé, mais abaixo.
+          -->
+          <div class="linha linha-off">
+            <span class="linha-rot">Telefone</span>
+            <span class="linha-val">000 000 000</span>
+            <span class="linha-ac linha-nota">a confirmar</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="rodape-in">
+
+      <a href="#" class="marca marca-pe" data-brand="light" aria-label="Abreu e Pereira — início">
+        <img class="marca-img" alt="Abreu e Pereira" hidden />
+        <span class="marca-txt">
+          <span class="mt-sigla" aria-hidden="true">AP</span>
+          <span class="mt-nome">Abreu&nbsp;e&nbsp;Pereira</span>
+        </span>
+      </a>
+
+      <nav class="rodape-nav" aria-label="Navegação">
+        <a href="#f-transporte">Transporte</a>
+        <a href="#f-recrutamento">Recrutamento</a>
+        <a href="#f-restauracao">Restauração</a>
+        <a href="#casa">A casa</a>
+        <a href="#contacto">Contactos</a>
+      </nav>
+
+      <div class="rodape-fim">
+        <span>&copy; <span id="ano">2026</span> Abreu e Pereira, Lda.</span>
+        <span class="rodape-tel">Tel. 000 000 000</span>
+        <a href="#" class="rodape-topo">Topo <span aria-hidden="true">↑</span></a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
