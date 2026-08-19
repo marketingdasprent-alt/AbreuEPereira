@@ -14,6 +14,7 @@ Site estático, sem dependências externas (HTML + CSS + JavaScript nativo).
 | `script.js` | Comportamento (logótipo automático, animações, menu) |
 | `images/` | Logótipo e símbolo — ver [`images/LEIA-ME.md`](images/LEIA-ME.md) |
 | `.htaccess` | Configuração Apache para o alojamento cPanel |
+| `vercel.json` | Cabeçalhos de segurança no Vercel (o `.htaccess` não é lido lá) |
 | `robots.txt` | Indexação por motores de busca |
 | `server.js` | Servidor de desenvolvimento (Node nativo, sem dependências) |
 | `package.json` | Scripts npm |
@@ -41,6 +42,21 @@ para os fundos escuros do site. Para o trocar por um ficheiro próprio basta
 pousar o PNG em `images/` — é procurado antes do SVG, por isso ganha sozinho,
 sem apagar nada nem tocar em código. Nomes e requisitos em
 [`images/LEIA-ME.md`](images/LEIA-ME.md).
+
+## Publicar (Vercel)
+
+O site é estático e não tem passo de compilação: o `package.json` não define
+`build`, por isso o Vercel serve a raiz do repositório tal como está. Ao importar
+o projeto, deixar o *framework preset* em **Other** e não preencher nem o
+*Build Command* nem o *Output Directory*.
+
+O `.htaccess` só é lido por Apache — no Vercel não faz nada. Por isso os
+cabeçalhos de segurança estão duplicados em `vercel.json`. Não é redundância
+inútil: o `frame-ancestors` da CSP em `<meta>` é **ignorado** pelos browsers
+(a directiva só funciona como cabeçalho HTTP real), tal como o `X-Frame-Options`.
+Se mexeres na CSP do `index.html`, mexe também na do `vercel.json`.
+
+Cada `git push` para `main` dispara um deploy novo.
 
 ## Publicar (cPanel · Domínios.pt)
 
