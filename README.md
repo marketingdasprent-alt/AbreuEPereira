@@ -45,9 +45,12 @@ sem apagar nada nem tocar em código. Nomes e requisitos em
 
 ## Publicar (Vercel)
 
-O site é estático e não tem passo de compilação. Ao importar o projeto, deixar o
-*framework preset* em **Other** e não preencher nem o *Build Command* nem o
-*Output Directory*.
+O site é estático e não tem passo de compilação. O `vercel.json` já fixa isso
+(`"framework": null`, `"outputDirectory": "."`) e essas definições **têm
+precedência sobre o dashboard** — por isso não é preciso mexer lá.
+
+Se alguém puser o *Framework Preset* em **Node.js** no dashboard, o build falha
+com `No entrypoint found`. O preset correcto é **Other**.
 
 O `.vercelignore` é essencial e não é cosmético. Sem ele o Vercel encontra o
 `server.js` mais o script `start` do `package.json`, conclui que isto é uma
