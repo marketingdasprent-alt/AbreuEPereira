@@ -1,0 +1,16 @@
+# O site é estático. Sem este ficheiro, o Vercel encontra o server.js e o
+# script "start" do package.json, conclui que isto é uma aplicação Node e
+# corre o server.js como função serverless — que depois não encontra o
+# styles.css nem o script.js ao lado dele, porque não vão no bundle.
+#
+# O server.js é só para desenvolvimento local (npm start).
+server.js
+package.json
+package-lock.json
+
+# Documentação — não faz parte do site
+README.md
+images/LEIA-ME.md
+
+# Configuração de Apache, para o alojamento cPanel. No Vercel não é lida.
+.htaccess

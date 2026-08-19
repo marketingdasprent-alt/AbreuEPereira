@@ -45,10 +45,16 @@ sem apagar nada nem tocar em código. Nomes e requisitos em
 
 ## Publicar (Vercel)
 
-O site é estático e não tem passo de compilação: o `package.json` não define
-`build`, por isso o Vercel serve a raiz do repositório tal como está. Ao importar
-o projeto, deixar o *framework preset* em **Other** e não preencher nem o
-*Build Command* nem o *Output Directory*.
+O site é estático e não tem passo de compilação. Ao importar o projeto, deixar o
+*framework preset* em **Other** e não preencher nem o *Build Command* nem o
+*Output Directory*.
+
+O `.vercelignore` é essencial e não é cosmético. Sem ele o Vercel encontra o
+`server.js` mais o script `start` do `package.json`, conclui que isto é uma
+aplicação Node e corre o `server.js` como função serverless. O site parece
+funcionar — o `index.html` até é servido — mas o `styles.css`, o `script.js` e
+as imagens dão **404**, porque não vão no bundle da função. Resultado: página
+sem estilos nenhuns. O `server.js` é só para desenvolvimento local.
 
 O `.htaccess` só é lido por Apache — no Vercel não faz nada. Por isso os
 cabeçalhos de segurança estão duplicados em `vercel.json`. Não é redundância
