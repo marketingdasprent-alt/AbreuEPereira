@@ -19,32 +19,45 @@
 
   /* ===== 01. LOGÓTIPO AUTOMÁTICO ========================= */
   /*
-     Sem logótipo, a página mostra a versão tipográfica: a sigla
-     "AP" seguida do nome. Basta pôr os ficheiros em images/ para
-     a troca acontecer sozinha, sem tocar em código:
+     O site traz o logótipo em SVG, que serve em qualquer tamanho.
+     Para substituir por um ficheiro próprio basta pousá-lo em
+     images/ com o nome certo — o PNG é procurado primeiro, por isso
+     ganha ao SVG sem ser preciso apagar nada nem tocar em código:
 
        images/logo.png        → fundos claros
        images/logo-white.png  → fundos escuros (é o caso da barra
                                 e do rodapé deste site)
        images/mark.png        → símbolo isolado, para o separador
 
-     Se um ficheiro não existir, fica a versão tipográfica e nada
-     é mostrado ao visitante.
+     Se nada existir, fica a versão tipográfica: a sigla "AP" seguida
+     do nome. Nunca aparece um espaço vazio ao visitante.
   */
 
   var LOGO_POR_FUNDO = {
-    dark:  "images/logo.png",       // logótipo escuro, para fundo claro
-    light: "images/logo-white.png"  // logótipo claro, para fundo escuro
+    // logótipo escuro, para fundo claro
+    dark:  ["images/logo.png", "images/logo.svg"],
+    // logótipo claro, para fundo escuro
+    light: ["images/logo-white.png", "images/logo-white.svg"]
   };
 
-  function seExistir(src, aoEncontrar) {
+  function seExistir(src, aoEncontrar, aoFalhar) {
     var teste = new Image();
     teste.onload = function () {
       // Ignora ficheiros vazios ou corrompidos
       if (teste.naturalWidth > 1) aoEncontrar(src);
+      else if (aoFalhar) aoFalhar();
     };
-    teste.onerror = function () { /* não existe — fica o texto */ };
+    teste.onerror = function () { if (aoFalhar) aoFalhar(); };
     teste.src = src;
+  }
+
+  /* Experimenta os candidatos por ordem e pára no primeiro que exista. */
+  function oPrimeiroQueExistir(lista, aoEncontrar) {
+    var i = 0;
+    (function seguinte() {
+      if (i >= lista.length) return;   // nenhum existe — fica o texto
+      seExistir(lista[i++], aoEncontrar, seguinte);
+    })();
   }
 
   function aplicarLogotipos() {
@@ -52,9 +65,9 @@
 
     Array.prototype.forEach.call(marcas, function (marca) {
       var fundo = marca.getAttribute("data-brand") || "light";
-      var src = LOGO_POR_FUNDO[fundo] || LOGO_POR_FUNDO.light;
+      var candidatos = LOGO_POR_FUNDO[fundo] || LOGO_POR_FUNDO.light;
 
-      seExistir(src, function (encontrado) {
+      oPrimeiroQueExistir(candidatos, function (encontrado) {
         var img = marca.querySelector(".marca-img");
         var texto = marca.querySelector(".marca-txt");
         if (!img) return;
@@ -65,7 +78,7 @@
       });
     });
 
-    // Ícone do separador, se houver símbolo em PNG
+    // Ícone do separador, se houver símbolo em PNG (o SVG já está no HTML)
     seExistir("images/mark.png", function (encontrado) {
       var icone = document.querySelector('link[rel="icon"]');
       if (!icone) return;

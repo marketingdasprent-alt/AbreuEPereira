@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 200" role="img" aria-label="Abreu e Pereira">
+  <title>Abreu e Pereira</title>
+
+  <defs>
+    <linearGradient id="ap-laranja" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0"    stop-color="#ff6a00"/>
+      <stop offset="0.55" stop-color="#ff8321"/>
+      <stop offset="1"    stop-color="#ff9c42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== MONOGRAMA (espaço próprio: 460 × 260) ===== -->
+  <g transform="translate(2 4) scale(0.73)">
+
+    <!-- P — um tom abaixo do A, para se ler atrás dele -->
+    <path fill-rule="evenodd" fill="#a9aeb4"
+          d="M240 26 L316 26 C356 26 384 51 384 81 C384 111 356 136 316 136
+             L292 136 L292 234 L240 234 Z
+             M292 58 L318 58 C334 58 346 68 346 81 C346 94 334 104 318 104 L292 104 Z"/>
+
+    <!-- A — à frente, cheio -->
+    <path fill="#eceae4"
+          d="M110 26 L154 26 L254 234 L204 234 L132 90 L60 234 L10 234 Z"/>
+
+    <!-- Traço de velocidade: duas lâminas curtas e a lâmina principal.
+         Sem halo: à altura a que a barra o mostra, o brilho só borrava. -->
+    <g>
+      <path fill="#e8341a" d="M66 234 L116 154 L146 154 L96 234 Z"/>
+      <path fill="#ff7a18" d="M110 234 L160 154 L200 154 L150 234 Z"/>
+      <path fill="url(#ap-laranja)"
+            d="M36 145
+               C104 144 184 137 252 119
+               C306 105 346 82 374 66
+               C394 54 416 68 408 89
+               C400 107 370 111 350 120
+               C290 149 202 175 112 185
+               C66 190 34 192 10 191 Z"/>
+    </g>
+  </g>
+
+  <!-- ===== NOME ===== -->
+  <text x="378" y="116"
+        font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700"
+        letter-spacing="7">
+    <tspan fill="#f2efe9">ABREU </tspan><tspan fill="#ff7a18">&amp;</tspan><tspan fill="#f2efe9"> PEREIRA</tspan>
+  </text>
+</svg>

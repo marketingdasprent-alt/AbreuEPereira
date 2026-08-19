@@ -36,9 +36,10 @@ por isso o que se vê localmente é o que se vê publicado.
 
 ## Logótipo
 
-O site funciona sem logótipo — mostra uma versão tipográfica com o monograma
-`AP`. Assim que existirem ficheiros em `images/`, a troca é automática e não
-exige alterações no código. Nomes e requisitos em
+O logótipo está em SVG (`images/logo-white.svg` e `images/mark.svg`), desenhado
+para os fundos escuros do site. Para o trocar por um ficheiro próprio basta
+pousar o PNG em `images/` — é procurado antes do SVG, por isso ganha sozinho,
+sem apagar nada nem tocar em código. Nomes e requisitos em
 [`images/LEIA-ME.md`](images/LEIA-ME.md).
 
 ## Publicar (cPanel · Domínios.pt)
@@ -83,4 +84,4 @@ caso sejam enviados por engano.
 ## Contactos
 
 - **Morada:** Travessa do Alcaide, n.º 22-A · 1200-013 Lisboa
-- **Email:** geral.abreu@sapo.pt
+- **Email:** geral@abreuepereira.pt
