@@ -99,6 +99,12 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Evita palavras viúvas em todo o site: o corpo de texto usa
+     "pretty" (favorece a última linha ao quebrar o parágrafo) e os
+     títulos usam "balance" (linhas de comprimento parecido), abaixo.
+     Propriedade herdada — um só sítio a mexer para o site inteiro.
+     Onde o browser não suporta, cai no quebrar de linha normal. */
+  text-wrap: pretty;
 }
 
 img { display: block; max-width: 100%; height: auto; }
@@ -109,9 +115,23 @@ img { display: block; max-width: 100%; height: auto; }
 [hidden] { display: none !important; }
 
 a { color: inherit; text-decoration: none; }
-h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
 p { margin: 0; }
 address { font-style: normal; }
+
+/* Títulos curtos que não são <h1-3> (são <span>/<summary> por
+   ficarem dentro de <a>/<details>) — mesma protecção. */
+.f-nome,
+.pilar-tit,
+.faq-item summary {
+  text-wrap: balance;
+}
 
 ::selection { background: var(--marca); color: var(--escuro); }
 
@@ -130,8 +150,7 @@ address { font-style: normal; }
 /* Rótulo pequeno em maiúsculas — usado em vários sítios */
 .rotulo,
 .linha-rot,
-.ficha-lista dt,
-.obra {
+.ficha-lista dt {
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -165,32 +184,44 @@ address { font-style: normal; }
   gap: clamp(1rem, 3vw, 2.25rem);
 }
 
-.obra {
-  display: inline-flex;
+.barra-nav {
+  display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: clamp(0.9rem, 2.4vw, 1.75rem);
+}
+.barra-nav a {
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--meio);
   white-space: nowrap;
+  transition: color 0.25s var(--mov);
 }
-.obra-luz {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--marca);
-  animation: bater 2.6s var(--mov) infinite;
-}
-@keyframes bater {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.25; }
-}
+.barra-nav a:hover { color: var(--claro); }
 
 .barra-mail {
-  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #3a4046;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--claro);
-  padding-bottom: 2px;
-  border-bottom: 1px solid #3a4046;
-  transition: border-color 0.3s var(--mov);
+  white-space: nowrap;
+  transition: background-color 0.3s var(--mov), border-color 0.3s var(--mov), color 0.3s var(--mov);
 }
-.barra-mail:hover { border-color: var(--claro); }
+.barra-mail:hover {
+  background: var(--marca);
+  border-color: var(--marca);
+  color: var(--escuro);
+}
+
+.barra-mail-icone {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
 
 
 /* ===== 04. MARCA ========================================= */
@@ -256,10 +287,14 @@ address { font-style: normal; }
   min-width: 0;
   height: calc(100svh - var(--barra-h) - var(--pe-h));
   min-height: 26rem;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  /* A base fica bem mais funda que o topo: é o espaço reservado para
+     a descrição + "Ver" que só aparecem ao abrir o painel (.f-extra,
+     abaixo). Sem esta folga, o nome fica colado ao rodapé do painel
+     e a descrição sai cortada pelo overflow:hidden. */
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) clamp(9rem, 15vw, 11rem);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   overflow: hidden;
   color: var(--claro);
   border-right: 1px solid rgba(0, 0, 0, 0.28);
@@ -267,9 +302,18 @@ address { font-style: normal; }
 }
 .frente:last-of-type { border-right: 0; }
 
-.frente[data-f="t"] { background: var(--t); }
-.frente[data-f="r"] { background: var(--r); }
-.frente[data-f="f"] { background: var(--f); }
+/* Fotografia por baixo da cor: a cor sólida fica como sobreposição
+   (não como decoração à parte), por isso a frente continua a ler-se
+   preta/laranja/vermelha mesmo com a fotografia lá atrás. */
+.frente[data-f="t"] {
+  background: linear-gradient(180deg, rgba(11, 12, 14, 0.45), rgba(11, 12, 14, 0.94)), var(--t) url("images/fotos/transporte.jpg") center / cover no-repeat;
+}
+.frente[data-f="r"] {
+  background: linear-gradient(180deg, rgba(168, 67, 31, 0.45), rgba(56, 22, 10, 0.9)), var(--r) url("images/fotos/recrutamento.jpg") center / cover no-repeat;
+}
+.frente[data-f="f"] {
+  background: linear-gradient(180deg, rgba(143, 20, 32, 0.45), rgba(48, 7, 11, 0.9)), var(--f) url("images/fotos/restauracao.jpg") center 30% / cover no-repeat;
+}
 
 /* O painel preto não se separa dos vizinhos por uma linha preta:
    a divisória passa a ser um fio claro, do lado dele. */
@@ -294,14 +338,6 @@ address { font-style: normal; }
     radial-gradient(70% 50% at 50% 100%, rgba(0, 0, 0, 0.5), transparent 70%);
 }
 
-.f-num {
-  position: relative;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  opacity: 0.62;
-}
-
 .f-corpo {
   position: relative;
   display: block;
@@ -313,6 +349,18 @@ address { font-style: normal; }
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.02;
+}
+
+/* A descrição e a chamada de acção ficam escondidas até se abrir o
+   painel, mas o seu bloco (.f-extra) sai do fluxo do nome: se
+   ficasse dentro do mesmo bloco, um texto mais comprido numa frente
+   empurrava o nome para cima só nessa frente, e as três deixavam de
+   assentar na mesma linha. Em ecrã empilhado (abaixo de 860px) volta
+   ao fluxo normal, porque aí não há três colunas a alinhar. */
+.f-extra {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
 }
 
 .f-desc,
@@ -424,40 +472,72 @@ address { font-style: normal; }
 }
 .texto-corr:last-child { margin-bottom: 0; }
 
+.pilares {
+  margin-top: clamp(2rem, 5vw, 3.25rem);
+  padding-top: clamp(2rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--osso-2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 62ch;
+}
+
+.pilar { display: flex; flex-direction: column; }
+
+.pilar-tit {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.pilar-desc {
+  font-size: 0.9rem;
+  color: var(--osso-txt);
+}
+
 
 /* ===== 07. FICHAS DAS ÁREAS ============================== */
 
 .ficha {
+  position: relative;
   padding: clamp(3rem, 7vw, 5.5rem) var(--marge);
   border-bottom: 1px solid var(--breu-3);
-  background: var(--breu);
+  background-color: var(--breu);
+  overflow: hidden;
   transition: background-color 0.5s var(--mov);
 }
-.ficha:hover { background: var(--breu-2); }
+
+/* Fotografia da área, esbatida no fundo escuro. Ao passar o rato a
+   leitura é que tem de ganhar — por isso a foto esbate-se ainda mais
+   (menos opacidade) e os textos secundários, mais abaixo, clareiam. */
+.ficha::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.26;
+  transition: opacity 0.6s var(--mov);
+}
+.ficha:hover::after { opacity: 0.12; }
 
 .ficha[data-f="t"] { --cor: var(--t-luz); }
 .ficha[data-f="r"] { --cor: var(--r-luz); }
 .ficha[data-f="f"] { --cor: var(--f-luz); }
 
+.ficha[data-f="t"]::after { background-image: url("images/fotos/transporte.jpg"); }
+.ficha[data-f="r"]::after { background-image: url("images/fotos/recrutamento.jpg"); }
+.ficha[data-f="f"]::after { background-image: url("images/fotos/restauracao.jpg"); }
+
 .ficha-in {
+  position: relative;
   max-width: 78rem;
   border-left: 3px solid var(--cor);
   padding-left: clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .ficha-topo {
-  display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
   margin-bottom: 1.75rem;
-}
-
-.ficha-n {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--cor);
-  flex: none;
 }
 
 .ficha-nome {
@@ -471,10 +551,37 @@ address { font-style: normal; }
   align-items: start;
 }
 
+.ficha-corpo { min-width: 0; }
+
 .ficha-texto {
   color: var(--meio);
   max-width: 62ch;
   font-size: 1.02rem;
+  transition: color 0.5s var(--mov);
+}
+.ficha:hover .ficha-texto { color: var(--claro); }
+
+.ficha-oferta {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  max-width: 62ch;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+.ficha-oferta li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: 0.94rem;
+  color: var(--claro);
+}
+.ficha-oferta li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px; height: 6px;
+  background: var(--cor);
 }
 
 .ficha-lista { margin: 0; }
@@ -487,13 +594,68 @@ address { font-style: normal; }
   border-bottom: 1px solid var(--breu-3);
 }
 .ficha-lista > div:first-child { border-top: 1px solid var(--breu-3); }
-.ficha-lista dt { color: var(--meio); flex: none; }
+.ficha-lista dt { color: var(--meio); flex: none; transition: color 0.5s var(--mov); }
+.ficha:hover .ficha-lista dt { color: var(--claro); }
 .ficha-lista dd {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 600;
   text-align: right;
 }
+
+
+/* ===== 07b. PERGUNTAS FREQUENTES ========================= */
+
+.faq {
+  background: var(--breu);
+  padding: clamp(3.5rem, 8vw, 6rem) var(--marge);
+  border-bottom: 1px solid var(--breu-3);
+}
+
+.faq-in { max-width: 54rem; }
+
+.faq-lista {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--breu-3);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--breu-3);
+  padding-block: 1.25rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--meio);
+  transition: transform 0.3s var(--mov);
+}
+.faq-item[open] summary::after {
+  content: "+";
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  margin-top: 0.9rem;
+  max-width: 60ch;
+  font-size: 0.94rem;
+  color: var(--meio);
+}
+.faq-item p a { text-decoration: underline; text-underline-offset: 2px; }
 
 
 /* ===== 08. CONTACTOS (bloco claro) ======================= */
@@ -509,7 +671,13 @@ address { font-style: normal; }
   grid-template-columns: 1fr 1fr;
   gap: clamp(2.5rem, 6vw, 5rem);
   max-width: 78rem;
-  align-items: start;
+  /* stretch (por definição) — a foto acompanha a altura real do
+     título + lista, em vez de ficar espremida com um vazio ao lado. */
+}
+
+.contacto-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .contacto-tit {
@@ -520,7 +688,37 @@ address { font-style: normal; }
   box-shadow: inset 0 -0.14em 0 var(--marca);
 }
 
+/* Vem depois da lista no HTML só para, em coluna única (telemóvel,
+   onde a foto perde a altura esticada), cair no fim — e não entre o
+   título e os contactos.
+
+   A foto "pousa" sobre um cartão da cor da marca — o mesmo laranja
+   do sublinhado do título e do botão de email — com sombra a
+   descolá-la do fundo claro. Sem isto ficava um rectângulo cru,
+   directamente em cima do bege da secção. */
+.contacto-foto {
+  position: relative;
+}
+.contacto-foto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--marca);
+}
+.contacto-foto img {
+  position: relative;
+  display: block;
+  width: calc(100% - 1.4rem);
+  height: calc(100% - 1.4rem);
+  object-fit: cover;
+  object-position: center 35%;
+  box-shadow:
+    0 30px 55px -22px rgba(20, 22, 26, 0.45),
+    0 10px 22px -12px rgba(20, 22, 26, 0.3);
+}
+
 .contacto-lista {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
   border-top: 1px solid var(--osso-2);
 }
 
@@ -635,6 +833,9 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   .ficha-grelha { grid-template-columns: 1fr; }
   .ficha-lista { max-width: 26rem; }
   .contacto-in { grid-template-columns: 1fr; }
+  /* Sem coluna irmã para esticar contra, a foto precisa de altura
+     própria aqui. */
+  .contacto-foto { height: clamp(14rem, 40vw, 20rem); }
 }
 
 @media (max-width: 860px) {
@@ -649,7 +850,7 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   }
   .frente[data-f="t"] { border-bottom-color: rgba(255, 255, 255, 0.09); }
   .frente:last-of-type { border-bottom: 0; }
-  .f-num { margin-bottom: 1.25rem; }
+  .f-extra { position: static; }
   .f-desc, .f-ir { opacity: 1; transform: none; }
   .f-desc { font-size: 0.92rem; }
 
@@ -657,6 +858,9 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   .pe-meio { display: none; }
 
   .linha { grid-template-columns: 5.5rem 1fr auto; }
+
+  .barra-nav { display: none; }
+  .pilares { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -665,7 +869,6 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   .mt-nome { font-size: 0.82rem; }
   .marca-img { height: 1.7rem; }
   .marca-pe .marca-img { height: 2.6rem; }
-  .obra { font-size: 0.6rem; letter-spacing: 0.12em; }
   .barra-in { gap: 0.9rem; }
   .linha { grid-template-columns: 1fr auto; }
   .linha-rot { grid-column: 1 / -1; margin-bottom: 0.15rem; }
@@ -695,7 +898,7 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   .frente::before { display: none; }
   .f-desc, .f-ir { opacity: 1; transform: none; }
   .anim { opacity: 1 !important; transform: none !important; }
-  .ficha, .casa { background: #fff; color: #000; }
+  .ficha, .casa, .faq { background: #fff; color: #000; }
   .contacto { background: #fff; }
-  .texto-corr, .ficha-texto, .rotulo { color: #333; }
+  .texto-corr, .ficha-texto, .ficha-oferta li, .rotulo, .pilar-desc, .faq-item p { color: #333; }
 }

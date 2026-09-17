@@ -126,7 +126,7 @@
   */
 
   function ativarAparicoes() {
-    var alvos = document.querySelectorAll(".casa, .ficha, .contacto-in");
+    var alvos = document.querySelectorAll(".casa, .ficha, .faq-in, .contacto-in");
     if (!alvos.length) return;
 
     if (semMovimento || !("IntersectionObserver" in window)) return;

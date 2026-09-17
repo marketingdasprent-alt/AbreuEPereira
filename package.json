@@ -2,7 +2,7 @@
   "name": "abreuepereira-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Site institucional da Abreu e Pereira, Lda. — transporte de mercadorias, recrutamento e restauração (site em construção).",
+  "description": "Site institucional da Abreu e Pereira, Lda. — transporte de mercadorias, recrutamento e restauração.",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
