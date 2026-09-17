@@ -899,9 +899,6 @@ a.linha:hover .linha-ac { transform: translateX(5px); }
   .ficha-grelha { grid-template-columns: 1fr; }
   .ficha-lista { max-width: 26rem; }
   .contacto-in { grid-template-columns: 1fr; }
-  /* Sem coluna irmã para esticar contra, a foto precisa de altura
-     própria aqui. */
-  .contacto-foto { height: clamp(14rem, 40vw, 20rem); }
 }
 
 @media (max-width: 860px) {
