@@ -6,16 +6,16 @@
 
   <!-- ===== Segurança ===== -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" />
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action mailto:; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <title>Abreu e Pereira — Transporte, Recrutamento e Restauração</title>
-  <meta name="description" content="Abreu e Pereira, Lda. Três frentes de trabalho: transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa. Site em construção." />
+  <title>Abreu e Pereira · Transporte, Recrutamento e Restauração</title>
+  <meta name="description" content="Abreu e Pereira, Lda. Três frentes de trabalho: transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa." />
   <meta name="theme-color" content="#0f1113" />
 
   <!-- ===== Open Graph ===== -->
-  <meta property="og:title" content="Abreu e Pereira — Três frentes de trabalho" />
+  <meta property="og:title" content="Abreu e Pereira · Três frentes de trabalho" />
   <meta property="og:description" content="Transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_PT" />
@@ -38,7 +38,7 @@
         Sem ficheiros em images/, mostra-se o monograma tipográfico.
         Ver images/LEIA-ME.md para os nomes esperados.
       -->
-      <a href="#" class="marca" data-brand="light" aria-label="Abreu e Pereira — início">
+      <a href="#" class="marca" data-brand="light" aria-label="Abreu e Pereira, início">
         <img class="marca-img" alt="Abreu e Pereira" hidden />
         <span class="marca-txt">
           <span class="mt-sigla" aria-hidden="true">AP</span>
@@ -47,11 +47,19 @@
       </a>
 
       <div class="barra-dir">
-        <span class="obra" title="Site em construção">
-          <span class="obra-luz" aria-hidden="true"></span>
-          Em construção
-        </span>
-        <a class="barra-mail" href="mailto:geral@abreuepereira.pt">geral@abreuepereira.pt</a>
+        <nav class="barra-nav" aria-label="Navegação principal">
+          <a href="#casa">Sobre</a>
+          <a href="#frentes">Serviços</a>
+          <a href="#faq">Perguntas</a>
+          <a href="#contacto">Contactos</a>
+        </nav>
+        <a class="barra-mail" href="mailto:geral@abreuepereira.pt">
+          <svg class="barra-mail-icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          geral@abreuepereira.pt
+        </a>
       </div>
 
     </div>
@@ -61,29 +69,32 @@
   <section class="entrada" id="frentes" aria-label="As três áreas">
 
     <a class="frente" href="#f-transporte" data-f="t">
-      <span class="f-num">01</span>
       <span class="f-corpo">
-        <span class="f-nome">Transporte<br />de mercadorias</span>
-        <span class="f-desc">Carga geral e distribuição, com rotas planeadas e prazos que se cumprem.</span>
-        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        <span class="f-nome">Transporte<br />de&nbsp;mercadorias</span>
+        <span class="f-extra">
+          <span class="f-desc">Carga geral e distribuição, com rotas planeadas e prazos que se cumprem.</span>
+          <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        </span>
       </span>
     </a>
 
     <a class="frente" href="#f-recrutamento" data-f="r">
-      <span class="f-num">02</span>
       <span class="f-corpo">
-        <span class="f-nome">Recrutamento<br />de pessoas</span>
-        <span class="f-desc">Selecção atenta ao perfil e ao contexto. Uma colocação certa vale por dez apressadas.</span>
-        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        <span class="f-nome">Recrutamento<br />de&nbsp;pessoas</span>
+        <span class="f-extra">
+          <span class="f-desc">Selecção atenta ao perfil e ao contexto. Uma colocação certa vale por dez apressadas.</span>
+          <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        </span>
       </span>
     </a>
 
     <a class="frente" href="#f-restauracao" data-f="f">
-      <span class="f-num">03</span>
       <span class="f-corpo">
         <span class="f-nome">Restauração</span>
-        <span class="f-desc">Produto cuidado, sala acolhedora. O trabalho mede-se em quem volta.</span>
-        <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        <span class="f-extra">
+          <span class="f-desc">Produto cuidado, sala acolhedora. O trabalho mede-se em quem volta.</span>
+          <span class="f-ir">Ver <span class="seta" aria-hidden="true">→</span></span>
+        </span>
       </span>
     </a>
 
@@ -103,23 +114,36 @@
         <div class="col-texto">
           <h2 class="titulao">
             Três ofícios diferentes.<br />
-            Uma só maneira de os fazer.
+            Uma só maneira de os&nbsp;fazer.
           </h2>
           <p class="texto-grande">
-            A Abreu e Pereira, Lda. é uma empresa portuguesa sediada em Lisboa.
-            Atravessa a estrada, as pessoas e a mesa — e não trata nenhuma delas
-            como actividade secundária.
+            A Abreu e Pereira, Lda. é uma empresa portuguesa, sediada em Lisboa,
+            com três áreas de negócio: transporte de mercadorias, recrutamento
+            de pessoas e restauração.
           </p>
           <p class="texto-corr">
-            O que liga sectores tão distintos não é o mercado; é o método.
-            Palavra dada, prazos cumpridos e uma preferência clara pelo trabalho
-            bem feito em vez do trabalho depressa feito. Quem nos contrata fala
+            Atravessa a estrada, as pessoas e a mesa, e não trata nenhuma delas
+            como actividade secundária. O que liga sectores tão distintos não é
+            o mercado, é o método: palavra dada, prazos cumpridos e uma
+            preferência clara pelo trabalho bem feito em vez do trabalho
+            depressa feito. Quem nos contrata fala
             com quem decide, sem intermediários a diluir a responsabilidade.
           </p>
-          <p class="texto-corr">
-            Estamos a preparar o site completo. Até lá, esta página serve para
-            dizer quem somos e como nos encontrar.
-          </p>
+
+          <div class="pilares">
+            <div class="pilar">
+              <span class="pilar-tit">Palavra dada</span>
+              <span class="pilar-desc">O que se combina é o que se cumpre, sem letra pequena a mudar depois o acordo.</span>
+            </div>
+            <div class="pilar">
+              <span class="pilar-tit">Prazos cumpridos</span>
+              <span class="pilar-desc">A data combinada é a data que conta, do carregamento à mesa posta.</span>
+            </div>
+            <div class="pilar">
+              <span class="pilar-tit">Sem intermediários</span>
+              <span class="pilar-desc">Quem decide está do outro lado da conversa, sem camadas a diluir a responsabilidade.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -129,17 +153,24 @@
     <article class="ficha" id="f-transporte" data-f="t">
       <div class="ficha-in">
         <header class="ficha-topo">
-          <span class="ficha-n">01</span>
           <h2 class="ficha-nome">Transporte de mercadorias</h2>
         </header>
 
         <div class="ficha-grelha">
-          <p class="ficha-texto">
-            Movimentação de carga com planeamento de rotas, cumprimento de
-            prazos e acompanhamento do percurso. Cada entrega é um compromisso
-            assumido com quem confia a mercadoria à nossa responsabilidade —
-            e é assim que a tratamos, do carregamento à descarga.
-          </p>
+          <div class="ficha-corpo">
+            <p class="ficha-texto">
+              Movimentação de carga com planeamento de rotas, cumprimento de
+              prazos e acompanhamento do percurso. Cada entrega é um compromisso
+              assumido com quem confia a mercadoria à nossa responsabilidade.
+              É assim que a tratamos, do carregamento à descarga.
+            </p>
+            <ul class="ficha-oferta">
+              <li>Transporte nacional e internacional</li>
+              <li>Carga geral, paletizada e volumosa</li>
+              <li>Distribuição e entregas de última milha</li>
+              <li>Planeamento de rotas à medida do prazo combinado</li>
+            </ul>
+          </div>
           <dl class="ficha-lista">
             <div><dt>Serviço</dt><dd>Carga geral</dd></div>
             <div><dt>Âmbito</dt><dd>Distribuição</dd></div>
@@ -152,17 +183,24 @@
     <article class="ficha" id="f-recrutamento" data-f="r">
       <div class="ficha-in">
         <header class="ficha-topo">
-          <span class="ficha-n">02</span>
           <h2 class="ficha-nome">Recrutamento de pessoas</h2>
         </header>
 
         <div class="ficha-grelha">
-          <p class="ficha-texto">
-            Fazemos a ligação entre quem procura trabalho e quem procura quem
-            trabalhe. A selecção é atenta ao perfil e ao contexto, porque uma
-            colocação certa vale mais do que dez apressadas — para a empresa
-            que contrata e para a pessoa que entra.
-          </p>
+          <div class="ficha-corpo">
+            <p class="ficha-texto">
+              Fazemos a ligação entre quem procura trabalho e quem procura quem
+              trabalhe. A selecção é atenta ao perfil e ao contexto, porque uma
+              colocação certa vale mais do que dez apressadas, para a empresa
+              que contrata e para a pessoa que entra.
+            </p>
+            <ul class="ficha-oferta">
+              <li>Recrutamento e selecção</li>
+              <li>Trabalho temporário</li>
+              <li>Outsourcing de recursos humanos</li>
+              <li>Acompanhamento após a colocação</li>
+            </ul>
+          </div>
           <dl class="ficha-lista">
             <div><dt>Serviço</dt><dd>Selecção</dd></div>
             <div><dt>Âmbito</dt><dd>Colocação</dd></div>
@@ -175,17 +213,24 @@
     <article class="ficha" id="f-restauracao" data-f="f">
       <div class="ficha-in">
         <header class="ficha-topo">
-          <span class="ficha-n">03</span>
           <h2 class="ficha-nome">Restauração</h2>
         </header>
 
         <div class="ficha-grelha">
-          <p class="ficha-texto">
-            Servir à mesa com a simplicidade de sempre: produto cuidado, sala
-            acolhedora e o gosto de receber bem. É o lado da casa onde o
-            trabalho não se mede em relatórios — mede-se em quem volta, e em
-            quem traz alguém consigo da próxima vez.
-          </p>
+          <div class="ficha-corpo">
+            <p class="ficha-texto">
+              Servir à mesa com a simplicidade de sempre: produto cuidado, sala
+              acolhedora e o gosto de receber bem. É o lado da casa onde o
+              trabalho não se mede em relatórios. Mede-se em quem volta, e em
+              quem traz alguém consigo da próxima vez.
+            </p>
+            <ul class="ficha-oferta">
+              <li>Serviço de sala do dia a dia</li>
+              <li>Atenção ao produto e à cozinha</li>
+              <li>Acolhimento de grupos e reservas</li>
+              <li>Pedidos fora do habitual, sob consulta</li>
+            </ul>
+          </div>
           <dl class="ficha-lista">
             <div><dt>Serviço</dt><dd>Sala</dd></div>
             <div><dt>Âmbito</dt><dd>Cozinha</dd></div>
@@ -195,16 +240,57 @@
       </div>
     </article>
 
+    <!-- ============ PERGUNTAS FREQUENTES ============ -->
+    <section class="faq" id="faq" aria-label="Perguntas frequentes">
+      <div class="faq-in">
+        <p class="rotulo">Perguntas frequentes</p>
+
+        <div class="faq-lista">
+          <details class="faq-item">
+            <summary>Trabalham só em Lisboa ou em todo o país?</summary>
+            <p>O grosso da actividade está em Lisboa e na região, mas nenhuma
+              das três frentes está fechada a pedidos de fora. Fale connosco
+              e vemos o que faz sentido para o seu caso.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Que tipo de carga transportam?</summary>
+            <p>Carga geral, paletizada ou volumosa, consoante o pedido. Cada
+              rota é planeada à medida do que há para levar e de quando tem
+              de lá chegar.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona o processo de recrutamento?</summary>
+            <p>Começa por perceber bem o que a empresa precisa e o perfil de
+              quem procuramos. Nunca é só cruzar um currículo com uma vaga.
+              É perceber se o encaixe é real, para os dois lados.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Fazem eventos ou só o serviço de sala do dia a dia?</summary>
+            <p>O foco é o serviço do dia a dia, com a atenção de sempre à
+              sala e ao produto. Para pedidos fora do habitual, fale
+              connosco directamente.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como posso pedir um orçamento ou falar com alguém?</summary>
+            <p>Pelo email <a href="mailto:geral@abreuepereira.pt">geral@abreuepereira.pt</a>,
+              ou pelos contactos logo a seguir nesta página. Responde-lhe
+              sempre uma pessoa, não uma caixa automática.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CONTACTOS (bloco claro) ============ -->
     <section class="contacto" id="contacto">
       <div class="contacto-in">
 
-        <h2 class="contacto-tit">
-          Enquanto o site<br />não fica pronto,<br />
-          <span class="sublinha">fale connosco.</span>
-        </h2>
+        <div class="contacto-col">
+          <h2 class="contacto-tit">
+            Três frentes,<br />
+            <span class="sublinha">uma só&nbsp;conversa.</span>
+          </h2>
 
-        <div class="contacto-lista">
+          <div class="contacto-lista">
 
           <a class="linha" href="mailto:geral@abreuepereira.pt">
             <span class="linha-rot">Email</span>
@@ -216,7 +302,7 @@
              target="_blank" rel="noopener noreferrer">
             <span class="linha-rot">Morada</span>
             <span class="linha-val">
-              <address>Travessa do Alcaide, n.º 22-A — 1200-013 Lisboa</address>
+              <address>Travessa do Alcaide, n.º 22-A, 1200-013 Lisboa</address>
             </span>
             <span class="linha-ac" aria-hidden="true">→</span>
           </a>
@@ -241,9 +327,49 @@
             <span class="linha-ac linha-nota">a confirmar</span>
           </div>
 
+          </div>
         </div>
+
+        <form class="contacto-form" action="mailto:geral@abreuepereira.pt" method="post" enctype="text/plain">
+          <p class="rotulo">Envie uma mensagem</p>
+
+          <div class="campo">
+            <label for="cf-nome">Nome</label>
+            <input type="text" id="cf-nome" name="Nome" autocomplete="name" required />
+          </div>
+
+          <div class="campo">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="Email" autocomplete="email" required />
+          </div>
+
+          <div class="campo">
+            <label for="cf-mensagem">Mensagem</label>
+            <textarea id="cf-mensagem" name="Mensagem" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="botao-enviar">Enviar mensagem</button>
+
+          <!--
+            Formulário sem servidor: "action=mailto:" abre o cliente de
+            email do visitante com a mensagem pronta a enviar. Funciona
+            em qualquer alojamento estático, sem backend nem serviço de
+            terceiros — mas depende de o visitante ter um cliente de
+            email configurado no aparelho. Se um dia quiseres um envio
+            silencioso (sem abrir o email), troca por um serviço como o
+            Formspree ou uma função serverless, e ajusta o "form-action"
+            do CSP (aqui e em vercel.json) para o apontar.
+          -->
+        </form>
       </div>
     </section>
+
+    <!-- ============ FOTO — CONTACTOS ============ -->
+    <div class="contacto-foto-secao">
+      <figure class="contacto-foto-faixa">
+        <img src="images/fotos/casa.jpg" alt="Aperto de mão entre dois profissionais, a fechar um acordo." loading="lazy" />
+      </figure>
+    </div>
 
   </main>
 
@@ -251,7 +377,7 @@
   <footer class="rodape">
     <div class="rodape-in">
 
-      <a href="#" class="marca marca-pe" data-brand="light" aria-label="Abreu e Pereira — início">
+      <a href="#" class="marca marca-pe" data-brand="light" aria-label="Abreu e Pereira, início">
         <img class="marca-img" alt="Abreu e Pereira" hidden />
         <span class="marca-txt">
           <span class="mt-sigla" aria-hidden="true">AP</span>

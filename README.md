@@ -1,7 +1,7 @@
 # Abreu e Pereira, Lda. — Site institucional
 
-Página institucional ("site em construção") da **Abreu e Pereira, Lda.** —
-transporte de mercadorias, recrutamento de pessoas e restauração. Lisboa.
+Página institucional (página única) da **Abreu e Pereira, Lda.** — transporte
+de mercadorias, recrutamento de pessoas e restauração. Lisboa.
 
 Site estático, sem dependências externas (HTML + CSS + JavaScript nativo).
 
@@ -13,6 +13,7 @@ Site estático, sem dependências externas (HTML + CSS + JavaScript nativo).
 | `styles.css` | Estilos (base clara, serifa, cor por área) |
 | `script.js` | Comportamento (logótipo automático, animações, menu) |
 | `images/` | Logótipo e símbolo — ver [`images/LEIA-ME.md`](images/LEIA-ME.md) |
+| `images/fotos/` | Fotografias das três áreas (placeholder — ver abaixo) |
 | `.htaccess` | Configuração Apache para o alojamento cPanel |
 | `vercel.json` | Cabeçalhos de segurança no Vercel (o `.htaccess` não é lido lá) |
 | `robots.txt` | Indexação por motores de busca |
@@ -105,6 +106,19 @@ caso sejam enviados por engano.
   Em [`index.html`](index.html) há um comentário na secção de contactos com o
   bloco já pronto a substituir. Também aparece no rodapé.
 - **Logótipo** — ver acima.
+- **Fotografias** — as de `images/fotos/` (painéis de entrada, fichas e "A
+  casa") são placeholder de banco de imagens gratuito (Unsplash, licença livre
+  para uso comercial), sem ligação à empresa real. Substituir por fotografia
+  própria assim que houver: `transporte.jpg`, `recrutamento.jpg`,
+  `restauracao.jpg`, `casa.jpg`, mantendo os mesmos nomes para não ser preciso
+  tocar em `styles.css` ou `index.html`.
+- **Formulário de contacto** — o `.contacto-form` em [`index.html`](index.html)
+  usa `action="mailto:geral@abreuepereira.pt"`: sem servidor, abre o cliente de
+  email do visitante com a mensagem pronta. Funciona em qualquer alojamento
+  estático, mas depende de o aparelho ter um cliente de email configurado. Para
+  um envio silencioso (sem abrir o email), trocar por um serviço como o
+  Formspree ou uma função serverless — e nesse caso actualizar também o
+  `form-action` do CSP em `index.html` **e** em `vercel.json`.
 
 ## Contactos
 
